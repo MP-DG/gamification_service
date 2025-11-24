@@ -21,4 +21,9 @@ type Query {
     🔒 The user must have access to the courses with the given ids to access their contents, otherwise an error is thrown.
     """
     tutorImmersiveWidgetSpeechContent(courseId: UUID!): String!
+
+    """
+    Returns a PlayerHexadScore object for a given user by UUID.
+    """
+    _internal_noauth_getPlayerHexadScoreById(userId: UUID!): PlayerHexadScore!
 }

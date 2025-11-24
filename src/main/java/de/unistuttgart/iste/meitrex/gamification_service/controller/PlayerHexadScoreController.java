@@ -1,6 +1,7 @@
 package de.unistuttgart.iste.meitrex.gamification_service.controller;
 
 import de.unistuttgart.iste.meitrex.common.user_handling.LoggedInUser;
+import de.unistuttgart.iste.meitrex.gamification_service.client.QueryDefinitions;
 import de.unistuttgart.iste.meitrex.gamification_service.service.IPlayerHexadScoreService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +37,15 @@ public class PlayerHexadScoreController {
     @QueryMapping
     public PlayerHexadScore getPlayerHexadScoreById(@Argument UUID userId) {
         return playerHexadScoreService.getById(userId);
+    }
+
+    /**
+     * No authorization required
+     * @return this.getPlayerHexadScoreById
+     */
+    @QueryMapping(name = QueryDefinitions.PLAYER_HEXAD_SCORE_BY_ID_NAME)
+    public PlayerHexadScore getPlayerHexadScoreByIdInternal(@Argument UUID userId) {
+        return this.getPlayerHexadScoreById(userId);
     }
 
     @QueryMapping
