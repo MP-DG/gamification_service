@@ -16,7 +16,7 @@ java {
 }
 
 group = 'de.unistuttgart.iste.meitrex'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 sourceCompatibility = '21'
 
 def jacocoEnabled = System.properties.getProperty("jacocoEnabled") ?: "true"
